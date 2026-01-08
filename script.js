@@ -1,24 +1,63 @@
-function addTask() {
-    let taskInput = document.getElementById("taskInput");
-    let taskValue = taskInput.value;
+// To-Do List
+const todoInput = document.getElementById("todo-input");
+const todoAdd = document.getElementById("todo-add");
+const todoList = document.getElementById("todo-list");
 
-    if (taskValue === "") {
-        alert("Please enter a task");
-        return;
+todoAdd.addEventListener("click", () => {
+    if(todoInput.value.trim() !== "") {
+        const li = document.createElement("li");
+        li.textContent = todoInput.value;
+        li.addEventListener("click", () => li.remove()); // click to delete
+        todoList.appendChild(li);
+        todoInput.value = "";
     }
+});
 
-    let li = document.createElement("li");
-    li.innerText = taskValue;
+// Expense Tracker
+const expName = document.getElementById("exp-name");
+const expAmount = document.getElementById("exp-amount");
+const expAdd = document.getElementById("exp-add");
+const expList = document.getElementById("exp-list");
+const expTotal = document.getElementById("exp-total");
+let total = 0;
 
-    let deleteBtn = document.createElement("button");
-    deleteBtn.innerText = "❌";
+expAdd.addEventListener("click", () => {
+    const name = expName.value.trim();
+    const amount = parseFloat(expAmount.value);
+    if(name && !isNaN(amount)) {
+        const li = document.createElement("li");
+        li.textContent = `${name}: $${amount.toFixed(2)}`;
+        expList.appendChild(li);
+        total += amount;
+        expTotal.textContent = total.toFixed(2);
+        expName.value = "";
+        expAmount.value = "";
+    }
+});
 
-    deleteBtn.onclick = function () {
-        li.remove();
-    };
+// Notes
+const noteInput = document.getElementById("note-input");
+const noteAdd = document.getElementById("note-add");
+const noteList = document.getElementById("note-list");
 
-    li.appendChild(deleteBtn);
-    document.getElementById("taskList").appendChild(li);
+noteAdd.addEventListener("click", () => {
+    if(noteInput.value.trim() !== "") {
+        const li = document.createElement("li");
+        li.textContent = noteInput.value;
+        li.addEventListener("click", () => li.remove()); // click to delete
+        noteList.appendChild(li);
+        noteInput.value = "";
+    }
+});
 
-    taskInput.value = "";
-}
+// Habits
+const habits = document.querySelectorAll(".habit");
+habits.forEach(habit => {
+    habit.addEventListener("change", () => {
+        if(habit.checked){
+            habit.parentElement.style.textDecoration = "line-through";
+        } else {
+            habit.parentElement.style.textDecoration = "none";
+        }
+    });
+});
