@@ -89,6 +89,7 @@ nav ul li a:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
+    align-items: flex-start;   
 }
 
 /* ================= CARDS ================= */
@@ -99,6 +100,8 @@ nav ul li a:hover {
     border-radius: 18px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.35);
     transition: 0.35s ease;
+    max-height: 420px;
+    overflow-y: auto;
 }
 
 .card:hover {
@@ -179,8 +182,22 @@ nav ul li a:hover {
 
 /* ================= list ========================= */
 #taskList list {
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-top: 8px;
+    padding: 6px 0;
+}
+
+#taskList list button {
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 12px;
+    padding: 4px 10px;
+    border-radius: 6px;
+  
 }
 
 
