@@ -176,6 +176,14 @@ nav ul li a:hover {
     font-size: 16px;
 }
 
+
+/* ================= list ========================= */
+#taskList list {
+    display: block;
+    margin-top: 8px;
+}
+
+
 /* ================= RESPONSIVE ================= */
 
 /* Tablet */
