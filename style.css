@@ -11,7 +11,7 @@ body {
     min-height: 100vh;
     padding-top: 80px;
     background-color: #0f2027;
-    color: #fff;
+    color: #ffffff;
 }
 
 /* Background Image */
@@ -19,11 +19,11 @@ body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: url("auto.png") center/cover no-repeat;
+    background: url("auto.png") center / cover no-repeat;
     z-index: -2;
 }
 
-/* Dark overlay for readability */
+/* Dark overlay */
 body::after {
     content: "";
     position: fixed;
@@ -37,17 +37,17 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 70px;
     background: rgba(44, 62, 80, 0.95);
     backdrop-filter: blur(6px);
     z-index: 1000;
     box-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
 
+header .header-inner,
 header div {
     width: 92%;
-    height: 100%;
     margin: auto;
+    min-height: 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -63,6 +63,7 @@ header h1 {
 nav ul {
     list-style: none;
     display: flex;
+    align-items: center;
 }
 
 nav ul li {
@@ -71,7 +72,7 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #fff;
+    color: #ffffff;
     padding: 8px 14px;
     border-radius: 8px;
     transition: 0.3s;
@@ -123,7 +124,7 @@ nav ul li a:hover {
     border: none;
     outline: none;
     background: rgba(255,255,255,0.25);
-    color: #fff;
+    color: #ffffff;
     font-size: 15px;
 }
 
@@ -142,7 +143,7 @@ nav ul li a:hover {
     margin-top: 12px;
     padding: 12px;
     background: linear-gradient(135deg, #71163c, #2c3e50);
-    color: #fff;
+    color: #ffffff;
     border: none;
     border-radius: 10px;
     font-weight: 600;
@@ -166,7 +167,7 @@ nav ul li a:hover {
     border-bottom: 1px solid rgba(255,255,255,0.4);
 }
 
-/* ================= HABIT CHECKBOX ================= */
+/* ================= HABIT ================= */
 .card label {
     display: flex;
     align-items: center;
@@ -184,16 +185,59 @@ nav ul li a:hover {
 
 
 /* ================= RESPONSIVE ================= */
-@media (max-width: 600px) {
+
+/* Tablet */
+@media (max-width: 768px) {
+
+    header div {
+        flex-direction: column;
+        gap: 12px;
+        padding: 10px 0;
+    }
+
     header h1 {
         font-size: 22px;
     }
 
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
     nav ul li {
-        margin-left: 10px;
+        margin: 6px;
+    }
+
+    body {
+        padding-top: 130px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
     }
 
     nav ul li a {
-        font-size: 14px;
+        display: block;
+        width: 100%;
+        background: rgba(255,255,255,0.12);
+    }
+
+    body {
+        padding-top: 190px;
     }
 }
