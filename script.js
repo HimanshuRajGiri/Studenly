@@ -1,37 +1,27 @@
-/* ========= Fetching all ids of TO-DO-lLIST ============ */
+/* ========= TO-DO-lLIST ============ */
 
 const inputTask = document.getElementById("inputTask");
 const addTaskBtn = document.getElementById("addTaskBtn");
 const taskList = document.getElementById("taskList");
 
-
-/* ======== Function of Button to add tasks ======== */
+/* ======== Add tasks ======== */
 
 addTaskBtn.addEventListener("click", function () {
-
-    /* == created a variable to store task == */
     const taskText = inputTask.value;
-
-    /* == checking if input is empty == */
     if(taskText === ""){
         alert("please enter any task.");
         return;
     }
 
     /* == created a list to store the tasks == */
+
     const list = document.createElement("list");
     list.textContent = taskText;
-
-    /* == stored into list ==*/
     taskList.appendChild(list);
-
-    /* = after adding the task input area will be empty = */
     inputTask.value="";
-
 
 /* ============= Function to delete the task ================= */
 
-/* == create a delete button  == */
 const deleteBtn = document.createElement("button");
 deleteBtn.textContent = "Delete";
 
@@ -45,4 +35,56 @@ taskList.appendChild(list);
 
 inputTask.value="";
 
+});
+
+
+
+
+/* ========= EXPENSE TRACKER ============ */
+
+const inputExp = document.getElementById("inputExp");
+const inputAmt = document.getElementById("inputAmt");
+const addExpBtn = document.getElementById("addExpBtn");
+const expenseList = document.getElementById("expenseList");
+const totalAmt = document.getElementById("totalAmt");
+
+let total = 0;
+
+/* ======== Function of Button to add expense ======== */
+
+addExpBtn.addEventListener("click", function () {
+    const expText = inputExp.value.trim();
+    const expAmount = Number(inputAmt.value);
+
+    if (expText === "" || expAmount <= 0) {
+        alert("Please enter valid expense name and amount");
+        return;
+    }
+
+    /* == created a list item == */
+    const li = document.createElement("li");
+
+    const span = document.createElement("span");
+    span.textContent = `${expText} - ₹${expAmount}`;
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+
+    /* == delete expense == */
+    deleteBtn.addEventListener("click", function () {
+        li.remove();
+        total -= expAmount;
+        totalAmt.textContent = total;
+    });
+
+    li.appendChild(span);
+    li.appendChild(deleteBtn);
+    expenseList.appendChild(li);
+
+    /* == update total == */
+    total += expAmount;
+    totalAmt.textContent = total;
+
+    inputExp.value = "";
+    inputAmt.value = "";
 });

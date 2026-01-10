@@ -181,7 +181,7 @@ nav ul li a:hover {
 
 
 /* ================= list ========================= */
-#taskList list {
+#taskList list  {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -190,7 +190,7 @@ nav ul li a:hover {
 }
 
 #taskList list button {
-    background: red;
+    background: rgba(105, 31, 31, 0.94);
     color: white;
     border: none;
     cursor: pointer;
@@ -200,6 +200,40 @@ nav ul li a:hover {
   
 }
 
+/* ================= EXPENSE LIST ================= */
+
+#expenseList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+}
+
+#expenseList li button {
+    background: rgba(105, 31, 31, 0.94);
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 12px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+#expenseList li button:hover {
+    background: red;
+}
+
+
+/* ================= TOTAL AMOUNT ================= */
+.total {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
 
 /* ================= RESPONSIVE ================= */
 

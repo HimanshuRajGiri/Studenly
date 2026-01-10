@@ -1,64 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Studenly</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <!-- HEADER -->
     <header>
-        <div>
-            <h1>Studenly</h1>
-            <nav>
-                <ul>
-                    <li><a href="#todo">To-Do</a></li>
-                    <li><a href="#expense">Expense</a></li>
-                    <li><a href="#notes">Notes</a></li>
-                    <li><a href="#habit">Habit</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>    
+      <div>
+        <h1>Studenly</h1>
+        <nav>
+          <ul>
+            <li><a href="#todo">To-Do</a></li>
+            <li><a href="#expense">Expense</a></li>
+            <li><a href="#notes">Notes</a></li>
+            <li><a href="#habit">Habit</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
     <!-- MAIN CONTENT -->
     <main class="container">
+      <!-- TASK 1: TO-DO -->
+      <section class="card" id="todo">
+        <h2>To-Do List</h2>
+        <input type="text" id="inputTask" placeholder="Enter your task" />
+        <button id="addTaskBtn">Add Task</button>
+        <ul id="taskList"></ul>
+      </section>
 
-        <!-- TASK 1: TO-DO -->
-        <section class="card" id="todo">
-            <h2>To-Do List</h2>
-            <input type="text" id="inputTask" placeholder="Enter your task">
-            <button id="addTaskBtn">Add Task</button>
-            <ul id="taskList"></ul>
-        </section>
+      <!-- TASK 2: EXPENSE -->
+      <section class="card" id="expense">
+        <h2>Expense Tracker</h2>
+        <input type="text" id="inputExp" placeholder="Expense name" />
+        <input type="number" id="inputAmt" placeholder="Amount" />
+        <button id="addExpBtn">Add Expense</button>
+        <ul id="expenseList"></ul>
+        <div class="total">Total: ₹ <span id="totalAmt">0</span></div>
+      </section>
 
-        <!-- TASK 2: EXPENSE -->
-        <section class="card" id="expense">
-            <h2>Expense Tracker</h2>
-            <input type="text" id="inpuExp"   placeholder="Expense name">
-            <input type="number" id="inputAmt"   placeholder="Amount">
-            <button id="addExpBtn">Add Expense</button>
-        </section>
+      <!-- TASK 3: NOTES -->
+      <section class="card" id="notes">
+        <h2>Notes</h2>
+        <textarea placeholder="Write your notes here"></textarea>
+        <button>Save Note</button>
+      </section>
 
-        <!-- TASK 3: NOTES -->
-        <section class="card" id="notes">
-            <h2>Notes</h2>
-            <textarea placeholder="Write your notes here"></textarea>
-            <button>Save Note</button>
-        </section>
-
-        <!-- TASK 4: HABIT -->
-        <section class="card" id="habit">
-            <h2>Habit Tracker</h2>
-            <label><input type="checkbox"> Exercise</label><br>
-            <label><input type="checkbox"> Study</label><br>
-            <label><input type="checkbox"> Reading</label>
-        </section>
-
+      <!-- TASK 4: HABIT -->
+      <section class="card" id="habit">
+        <h2>Habit Tracker</h2>
+        <label><input type="checkbox" /> Exercise</label><br />
+        <label><input type="checkbox" /> Study</label><br />
+        <label><input type="checkbox" /> Reading</label>
+      </section>
     </main>
 
-<script src="script.js"></script> 
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
