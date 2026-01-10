@@ -1,11 +1,10 @@
-/* ================= RESET ================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ================= BODY & BACKGROUND ================= */
+/* ================= BODY ================= */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 100vh;
@@ -14,307 +13,357 @@ body {
     color: #ffffff;
 }
 
-/* Background Image */
-body::before {
-    content: "";
+/* ================= BACKGROUND IMAGE ================= */
+#background {
     position: fixed;
     inset: 0;
-    background: url("auto.png") center / cover no-repeat;
+    background-size: cover;
+    background-position: center;
     z-index: -2;
+    transition: background-image 1s ease-in-out;
 }
 
-/* Dark overlay */
+/* ================= DARK OVERLAY ================= */
 body::after {
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.45);
+    background: rgba(0,0,0,0.45);
     z-index: -1;
 }
 
-/* ================= HEADER ================= */
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(44, 62, 80, 0.95);
-    backdrop-filter: blur(6px);
-    z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-}
 
-header .header-inner,
-header div {
-    width: 92%;
-    margin: auto;
-    min-height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+        /* ================= HEADER ================= */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(44, 62, 80, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        }
 
-header h1 {
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: 1px;
-}
+        .header-inner {
+            width: 92%;
+            margin: auto;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-/* ================= NAV ================= */
-/* nav ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-}
+        /* ================= MENU ICON ================= */
+        .menu-icon {
+            font-size: 26px;
+            cursor: pointer;
+            display: none;
+            user-select: none;
+        }
 
-nav ul li {
-    margin-left: 22px;
-}
+        /* ================= NAV ================= */
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
 
-nav ul li a {
-    text-decoration: none;
-    color: #ffffff;
-    padding: 8px 14px;
-    border-radius: 8px;
-    transition: 0.3s;
-}
+        nav ul li {
+            margin-left: 22px;
+        }
 
-nav ul li a:hover {
-    background: #71163c;
-} */
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            padding: 8px 14px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
 
-/* ================= MAIN CONTAINER ================= */
-.container {
-    width: 90%;
-    margin: 30px auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    align-items: flex-start;   
-}
+        nav ul li a:hover {
+            background: #71163c;
+        }
 
-/* ================= CARDS ================= */
-.card {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    padding: 25px;
-    border-radius: 18px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-    transition: 0.35s ease;
-    max-height: 420px;
-    overflow-y: auto;
-}
+        /* ================= MOBILE VIEW ================= */
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: block;
+            }
 
-.card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.45);
-}
+            nav {
+                position: absolute;
+                top: 70px;
+                right: 15px;
+                background: rgba(44, 62, 80, 0.98);
+                border-radius: 12px;
+                width: 200px;
+                display: none;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            }
 
-/* Card Headings */
-.card h2 {
-    font-size: 22px;
-    margin-bottom: 18px;
-    padding-bottom: 6px;
-    border-bottom: 2px solid rgba(255,255,255,0.5);
-}
+            nav ul {
+                flex-direction: column;
+                padding: 10px;
+            }
 
-/* ================= INPUTS ================= */
-.card input,
-.card textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    background: rgba(255,255,255,0.25);
-    color: #ffffff;
-    font-size: 15px;
-}
+            nav ul li {
+                margin: 10px 0;
+                width: 100%;
+            }
 
-.card textarea {
-    resize: none;
-    min-height: 90px;
-}
+            nav ul li a {
+                display: block;
+                width: 100%;
+                text-align: center;
+                background: rgba(255,255,255,0.1);
+            }
 
-.card input::placeholder,
-.card textarea::placeholder {
-    color: #e0e0e0;
-}
+            nav.active {
+                display: block;
+                animation: slideDown 0.3s ease;
+            }
+        }
 
-/* ================= BUTTONS ================= */
-.card button {
-    margin-top: 12px;
-    padding: 12px;
-    background: linear-gradient(135deg, #71163c, #2c3e50);
-    color: #ffffff;
-    border: none;
-    border-radius: 10px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-}
+        /* ================= ANIMATION ================= */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-.card button:hover {
-    transform: scale(1.05);
-    opacity: 0.95;
-}
+        /* ================= MAIN CONTAINER ================= */
+        .container {
+            width: 90%;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            align-items: flex-start;   
+        }
 
-/* ================= LIST ================= */
-.card ul {
-    list-style: none;
-    margin-top: 12px;
-}
+        /* ================= CARDS ================= */
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+            transition: 0.35s ease;
+            height: 420px; /* Fixed height for uniform size */
+            overflow-y: auto;
+        }
 
-.card ul li {
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.4);
-}
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.45);
+        }
 
-/* ================= HABIT ================= */
-.card label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 8px 0;
-    font-size: 16px;
-}
+        /* Card Headings */
+        .card h2 {
+            font-size: 22px;
+            margin-bottom: 18px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid rgba(255,255,255,0.5);
+        }
 
+        /* ================= INPUTS ================= */
+        .card input,
+        .card textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            background: rgba(255,255,255,0.25);
+            color: #ffffff;
+            font-size: 15px;
+        }
 
-/* ================= list ========================= */
-#taskList list  {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 8px;
-    padding: 6px 0;
-}
+        .card textarea {
+            resize: none;
+            min-height: 90px;
+        }
 
-#taskList list button {
-    background: rgba(105, 31, 31, 0.94);
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin-left: 12px;
-    padding: 4px 10px;
-    border-radius: 6px;
-}
-#taskList list button:hover {
-    background: red;
-}
+        .card input::placeholder,
+        .card textarea::placeholder {
+            color: #e0e0e0;
+        }
 
-/* ================= EXPENSE LIST ================= */
+        /* ================= BUTTONS ================= */
+        .card button {
+            margin-top: 12px;
+            padding: 12px;
+            background: linear-gradient(135deg, #71163c, #2c3e50);
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-#expenseList li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 8px;
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.4);
-}
+        .card button:hover {
+            transform: scale(1.05);
+            opacity: 0.95;
+        }
 
-#expenseList li button {
-    background: rgba(105, 31, 31, 0.94);
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin-left: 12px;
-    padding: 4px 10px;
-    border-radius: 6px;
-    transition: 0.3s;
-}
+        /* ================= LIST ================= */
+        .card ul {
+            list-style: none;
+            margin-top: 12px;
+        }
 
-#expenseList li button:hover {
-    background: red;
-}
+        .card ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.4);
+        }
 
+        /* ================= HABIT ================= */
+        .card label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 8px 0;
+            font-size: 16px;
+        }
 
-/* ================= TOTAL AMOUNT =============== */
-.total {
-    margin-top: 15px;
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-}
+        /* ================= list ========================= */
+        #taskList li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px;
+            padding: 6px 0;
+        }
 
+        #taskList li button {
+            background: rgba(105, 31, 31, 0.94);
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-left: 12px;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
 
-/* ====== For list of Notes ====================== */
-#noteList list  {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 8px;
-    padding: 6px 0;
-}
+        #taskList li button:hover {
+            background: red;
+        }
 
-#noteList list button {
-    background: rgba(105, 31, 31, 0.94);
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin-left: 12px;
-    padding: 4px 10px;
-    border-radius: 6px;
-}
-#noteList list button:hover {
-    background: red;
-}
+        /* ================= EXPENSE LIST ================= */
+        #expenseList li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.4);
+        }
 
+        #expenseList li button {
+            background: rgba(105, 31, 31, 0.94);
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-left: 12px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
 
-/* ================= RESPONSIVE ================= ===*/
+        #expenseList li button:hover {
+            background: red;
+        }
 
-/* Tablet */
-@media (max-width: 768px) {
+        /* ================= TOTAL AMOUNT =============== */
+        .total {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
 
-    header div {
-        flex-direction: column;
-        gap: 12px;
-        padding: 10px 0;
-    }
+        /* ====== For list of Notes ====================== */
+        #noteList li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px;
+            padding: 6px 0;
+        }
 
-    header h1 {
-        font-size: 22px;
-    }
+        #noteList li button {
+            background: rgba(105, 31, 31, 0.94);
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-left: 12px;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
 
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+        #noteList li button:hover {
+            background: red;
+        }
 
-    nav ul li {
-        margin: 6px;
-    }
+        /* ================= RESPONSIVE ================= ===*/
 
-    body {
-        padding-top: 130px;
-    }
-}
+        /* Tablet */
+        @media (max-width: 768px) {
+            header div {
+                flex-direction: column;
+                gap: 12px;
+                padding: 10px 0;
+            }
 
-/* Mobile */
-@media (max-width: 480px) {
+            header h1 {
+                font-size: 22px;
+            }
 
-    header h1 {
-        font-size: 20px;
-    }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
 
-    nav ul {
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-    }
+            nav ul li {
+                margin: 6px;
+            }
 
-    nav ul li {
-        width: 100%;
-        text-align: center;
-    }
+            body {
+                padding-top: 130px;
+            }
+        }
 
-    nav ul li a {
-        display: block;
-        width: 100%;
-        background: rgba(255,255,255,0.12);
-    }
+        /* Mobile */
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 20px;
+            }
 
-    body {
-        padding-top: 190px;
-    }
-}
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+            }
+
+            nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+
+            nav ul li a {
+                display: block;
+                width: 100%;
+                background: rgba(255,255,255,0.12);
+            }
+
+            body {
+                padding-top: 190px;
+            }
+        }

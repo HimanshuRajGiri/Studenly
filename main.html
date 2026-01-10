@@ -7,16 +7,27 @@
     <title>Studenly</title>
   </head>
   <body>
+    <!-- BACKGROUND IMAGE CONTAINER -->
+    <div id="background"></div>
+
     <!-- HEADER -->
     <header>
-      <div>
+      <div class="header-inner">
         <h1>Studenly</h1>
-        <nav>
+
+        <!-- Menu Icon (Mobile) -->
+        <div class="menu-icon" id="menuIcon">
+          &#8942;
+          <!-- three dot icon -->
+        </div>
+
+        <!-- Navigation -->
+        <nav id="navMenu">
           <ul>
-            <li><a href="#todo">To-Do</a></li>
-            <li><a href="#expense">Expense</a></li>
-            <li><a href="#notes">Notes</a></li>
-            <li><a href="#habit">Habit</a></li>
+            <li><a href="#">To-Do</a></li>
+            <li><a href="#">Expense</a></li>
+            <li><a href="#">Habit</a></li>
+            <li><a href="#">Notes</a></li>
           </ul>
         </nav>
       </div>
@@ -51,11 +62,13 @@
       </section>
 
       <!-- TASK 4: HABIT -->
+      <!-- TASK 4: HABIT -->
       <section class="card" id="habit">
         <h2>Habit Tracker</h2>
-        <label><input type="checkbox" /> Exercise</label><br />
-        <label><input type="checkbox" /> Study</label><br />
-        <label><input type="checkbox" /> Reading</label>
+        <label><input type="checkbox" id="exercise" /> Exercise</label><br />
+        <label><input type="checkbox" id="study" /> Study</label><br />
+        <label><input type="checkbox" id="reading" /> Reading</label>
+        <button onclick="resetHabits()">Reset Daily</button>
       </section>
     </main>
 
