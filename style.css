@@ -60,7 +60,7 @@ header h1 {
 }
 
 /* ================= NAV ================= */
-nav ul {
+/* nav ul {
     list-style: none;
     display: flex;
     align-items: center;
@@ -80,7 +80,7 @@ nav ul li a {
 
 nav ul li a:hover {
     background: #71163c;
-}
+} */
 
 /* ================= MAIN CONTAINER ================= */
 .container {
@@ -197,7 +197,9 @@ nav ul li a:hover {
     margin-left: 12px;
     padding: 4px 10px;
     border-radius: 6px;
-  
+}
+#taskList list button:hover {
+    background: red;
 }
 
 /* ================= EXPENSE LIST ================= */
@@ -227,7 +229,7 @@ nav ul li a:hover {
 }
 
 
-/* ================= TOTAL AMOUNT ================= */
+/* ================= TOTAL AMOUNT =============== */
 .total {
     margin-top: 15px;
     text-align: center;
@@ -235,7 +237,31 @@ nav ul li a:hover {
     font-weight: bold;
 }
 
-/* ================= RESPONSIVE ================= */
+
+/* ====== For list of Notes ====================== */
+#noteList list  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+    padding: 6px 0;
+}
+
+#noteList list button {
+    background: rgba(105, 31, 31, 0.94);
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 12px;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+#noteList list button:hover {
+    background: red;
+}
+
+
+/* ================= RESPONSIVE ================= ===*/
 
 /* Tablet */
 @media (max-width: 768px) {

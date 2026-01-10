@@ -20,7 +20,7 @@ addTaskBtn.addEventListener("click", function () {
     taskList.appendChild(list);
     inputTask.value="";
 
-/* ============= Function to delete the task ================= */
+/* ======== Function to delete the task ======== */
 
 const deleteBtn = document.createElement("button");
 deleteBtn.textContent = "Delete";
@@ -40,7 +40,7 @@ inputTask.value="";
 
 
 
-/* ========= EXPENSE TRACKER ============ */
+/*======================== EXPENSE TRACKER ============================ */
 
 const inputExp = document.getElementById("inputExp");
 const inputAmt = document.getElementById("inputAmt");
@@ -88,3 +88,40 @@ addExpBtn.addEventListener("click", function () {
     inputExp.value = "";
     inputAmt.value = "";
 });
+
+
+
+/* =========================== NOTES ============================ */
+
+textNote = document.getElementById("textNote");
+saveNote = document.getElementById("saveNote");
+noteList = document.getElementById("noteList");
+
+
+/* ========== For saving NOtes ===========*/
+saveNote.addEventListener("click", function () {
+    const text = textNote.value;
+
+    if (text === "") {
+        alert("Please, Enter any note!");
+        return;
+    }
+
+    const list = document.createElement("list");
+
+    list.textContent = text;
+    noteList.appendChild(list);
+    textNote.value ="";
+
+/* ========= For deleteing Notes ========= */
+
+deleteNoteBtn = document.createElement("button");
+deleteNoteBtn.textContent = "delete";
+
+deleteNoteBtn.addEventListener("click", function (){
+    list.remove();
+});
+
+list.appendChild(deleteNoteBtn);
+noteList.appendChild(list)
+})
