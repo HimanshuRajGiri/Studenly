@@ -31,7 +31,7 @@ setInterval(changeBackground, 5000);
 
 
 
-/* ========= TO-DO-lLIST ============ */
+/* ======================= TO-DO-lLIST ======================== */
 
 const inputTask = document.getElementById("inputTask");
 const addTaskBtn = document.getElementById("addTaskBtn");
@@ -40,17 +40,17 @@ const taskList = document.getElementById("taskList");
 /* ======== Add tasks ======== */
 
 addTaskBtn.addEventListener("click", function () {
-    const taskText = inputTask.value;
+    const taskText = inputTask.value; 
     if(taskText === ""){
         alert("please enter any task.");
         return;
     }
 
-    /* == created a list to store the tasks == */
+    /* = created a list to store the tasks = */
 
-    const list = document.createElement("list");
-    list.textContent = taskText;
-    taskList.appendChild(list);
+    const li = document.createElement("li");
+    li.textContent = taskText;
+    taskList.appendChild(li);
     inputTask.value="";
 
 /* ======== Function to delete the task ======== */
@@ -60,11 +60,11 @@ deleteBtn.textContent = "Delete";
 
 /* == function to delete the task == */
 deleteBtn.addEventListener("click", function (){
-    list.remove();
+    li.remove();
 });
 
-list.appendChild(deleteBtn);
-taskList.appendChild(list);
+li.appendChild(deleteBtn);
+taskList.appendChild(li);
 
 inputTask.value="";
 
@@ -140,10 +140,10 @@ saveNote.addEventListener("click", function () {
         return;
     }
 
-    const list = document.createElement("list");
+    const li = document.createElement("li");
 
-    list.textContent = text;
-    noteList.appendChild(list);
+    li.textContent = text;
+    noteList.appendChild(li);
     textNote.value ="";
 
 /* ========= For deleteing Notes ========= */
@@ -152,11 +152,11 @@ deleteNoteBtn = document.createElement("button");
 deleteNoteBtn.textContent = "delete";
 
 deleteNoteBtn.addEventListener("click", function (){
-    list.remove();
+    li.remove();
 });
 
-list.appendChild(deleteNoteBtn);
-noteList.appendChild(list)
+li.appendChild(deleteNoteBtn);
+noteList.appendChild(li)
 })
 
 
@@ -189,9 +189,9 @@ noteList.appendChild(list)
             });
         }
 
-        // Add event listeners to checkboxes
-        document.getElementById('exercise').addEventListener('change', () => saveHabit('exercise'));
-        document.getElementById('study').addEventListener('change', () => saveHabit('study'));
+        // Add event lieners to checkboxes
+        document.getElementById('exercise').addEventliener('change', () => saveHabit('exercise'));
+        document.getElementById('study').addEventliener('change', () => saveHabit('study'));
         document.getElementById('reading').addEventListener('change', () => saveHabit('reading'));
 
         // Load habits on page load

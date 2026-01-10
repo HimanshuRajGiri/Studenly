@@ -144,6 +144,7 @@ body::after {
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
             align-items: flex-start;   
+
         }
 
         /* ================= CARDS ================= */
@@ -239,7 +240,7 @@ body::after {
             justify-content: space-between;
             align-items: center;
             margin-top: 8px;
-            padding: 6px 0;
+            padding: 6px 10px;
         }
 
         #taskList li button {
@@ -250,6 +251,7 @@ body::after {
             margin-left: 12px;
             padding: 4px 10px;
             border-radius: 6px;
+           
         }
 
         #taskList li button:hover {
@@ -281,7 +283,7 @@ body::after {
             background: red;
         }
 
-        /* ================= TOTAL AMOUNT =============== */
+        /* ====== TOTAL AMOUNT ====== */
         .total {
             margin-top: 15px;
             text-align: center;
@@ -289,7 +291,7 @@ body::after {
             font-weight: bold;
         }
 
-        /* ====== For list of Notes ====================== */
+        /* ================= For list of Notes ====================== */
         #noteList li {
             display: flex;
             justify-content: space-between;
